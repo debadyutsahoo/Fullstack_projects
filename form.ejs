@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>User Form</title>
+</head>
+<body style="font-family: Arial; background-color: #f4f4f4; padding: 20px;">
+
+  <h2 style="color: #333;">User Registration</h2>
+
+  <form id="userForm" action="/submit" method="POST" onsubmit="return validateForm()" style="background: white; padding: 20px; border-radius: 5px;">
+    <label for="name" style="display:block; margin-bottom: 8px;">Name:</label>
+    <input type="text" name="name" id="name" style="width:100%; padding: 10px; margin-bottom: 15px;" />
+
+    <label for="email" style="display:block; margin-bottom: 8px;">Email:</label>
+    <input type="email" name="email" id="email" style="width:100%; padding: 10px; margin-bottom: 15px;" />
+
+    <button type="submit" style="padding: 10px 20px; background-color: #28a745; color:white; border: none; border-radius: 3px;">Submit</button>
+  </form>
+
+  <script>
+    function validateForm() {
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+
+      if (name === "" || email === "") {
+        alert("Both fields are required!");
+        return false;
+      }
+      if (!email.includes("@")) {
+        alert("Invalid email format.");
+        return false;
+      }
+      return true;
+    }
+  </script>
+</body>
+</html>
